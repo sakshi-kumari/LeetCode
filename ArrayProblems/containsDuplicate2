@@ -1,0 +1,17 @@
+Ques::: https://leetcode.com/problems/contains-duplicate-ii/
+
+var containsNearbyDuplicate = function(nums, k) {
+    let returnValue = false;
+    previous = {};
+    for(let i=0; i<nums.length; i++) {
+        current = previous[nums[i]];
+        if(current != undefined && (Math.abs(i-current) <= k)) {
+            returnValue = true;
+            break;
+        }
+        
+        previous[nums[i]] = i;
+    }
+  
+    return returnValue;
+};
