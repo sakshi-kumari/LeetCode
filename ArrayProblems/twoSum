@@ -1,0 +1,26 @@
+Ques::: https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/submissions/
+
+Solution 1: 
+var twoSum = function(numbers, target) {
+    for(i=0; i<numbers.length-1; i++) {
+        for(j=i+1; j<numbers.length; j++ ) {
+            if((numbers[i] + numbers[j]) == target) return [i+1, j+1];
+            else continue;
+        }
+        
+    }
+};
+
+solution 2:
+var twoSum = function(numbers, target) {
+    previous = {};
+    for(i=0; i<numbers.length; i++) {
+        current = previous[target- numbers[i]];
+        if(current != undefined) {
+            return [current+1, i+1];
+        }
+        
+        previous[numbers[i]] = i;
+        
+    }
+};
