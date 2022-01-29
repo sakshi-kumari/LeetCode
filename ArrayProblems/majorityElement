@@ -1,0 +1,23 @@
+Ques::: https://leetcode.com/problems/majority-element/submissions/
+
+var majorityElement = function(nums) {
+    let majorityObj = {
+        number: nums[0],
+        count: 1
+    };
+    
+    for(let i=1; i<nums.length; i++) {
+       if(majorityObj['number'] === nums[i]) {
+           majorityObj['count']++;
+       } else {
+           majorityObj['count']--;
+           if(majorityObj['count']<0) {
+               majorityObj['number'] = nums[i];
+               majorityObj['count'] = 1;
+           }
+       }
+    }
+    
+    return majorityObj['number'];
+
+};
