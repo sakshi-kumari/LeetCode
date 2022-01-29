@@ -1,0 +1,18 @@
+Ques::: https://leetcode.com/problems/contains-duplicate/submissions/
+
+var containsDuplicate = function(nums) {
+    let returnValue = false;
+    
+    for(let i=0; i<nums.length; i++) {
+        if(nums.indexOf(nums[i]) === nums.lastIndexOf(nums[i])) {
+            returnValue = false;
+        } else {
+            returnValue = true;
+            break;
+        }
+    }
+  
+    
+    return returnValue;
+    
+};
