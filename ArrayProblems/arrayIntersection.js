@@ -16,7 +16,7 @@ var intersection = function(nums1, nums2) {
 
     let resultArray = [];
     
-  /* Functionality to push the common element in both the arrays */
+  /* Functionality to push the common element in both the arrays and the final array should only contains unique elements */
     arrToIterate.forEach( item => {
         if(arrToCheck.includes(item) && !resultArray.includes(item)) {
             resultArray.push(item);
