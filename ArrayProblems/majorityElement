@@ -1,5 +1,7 @@
 Ques::: https://leetcode.com/problems/majority-element/submissions/
 
+Solution 1: 
+
 var majorityElement = function(nums) {
     let majorityObj = {
         number: nums[0],
@@ -20,4 +22,24 @@ var majorityElement = function(nums) {
     
     return majorityObj['number'];
 
+};
+
+Solution 2:
+
+
+var majorityElement = function(nums) {
+    let numCountMap = {};
+    const n = nums.length;
+    for (let i=0; i<n; i++){
+        if (numCountMap[nums[i]]) {
+            numCountMap[nums[i]]++;
+            if (numCountMap[nums[i]] > n/2) {
+                return nums[i];
+            }
+        } else {
+            numCountMap[nums[i]] = 1
+        }
+    }
+    
+    return Object.keys(numCountMap)[0];
 };
