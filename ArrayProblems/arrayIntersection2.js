@@ -1,5 +1,8 @@
 Ques::: https://leetcode.com/problems/intersection-of-two-arrays-ii
 
+Solution 1:
+
+
 var intersect = function(nums1, nums2) {
     const arr1 = nums1.length;
     const arr2 = nums2.length;
@@ -25,4 +28,29 @@ var intersect = function(nums1, nums2) {
     });
     
     return resultArray;
+};
+
+
+Solution 2:
+
+
+var intersect = function(nums1, nums2) {
+    let nums1Map = {}; let intersection = [];
+    for (let item of nums1) {
+        if (nums1Map[item]) {
+            nums1Map[item]++;
+        } else {
+            nums1Map[item] = 1;
+        }
+    }
+    
+    
+    for (let item of nums2) {
+        if(nums1Map[item] !== 0 && nums1Map[item] !== undefined) {
+            intersection.push(item);
+            nums1Map[item]--;
+        }
+    }
+    
+    return intersection;
 };
